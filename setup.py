@@ -5,14 +5,15 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="local_reload",
-    version="0.0.0",
+    version="1.0.0",
     author="Alex Fischer",
     author_email="alex@quadrant.net",
-    description="TODO",
+    description="Django app for automatically identifying and reloading stale web pages",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    # url="TODO - github repo",
+    url="https://github.com/quadrant-newmedia/local_reload",
     packages=['local_reload'],
+    package_dir={'': 'src'},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
