@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'dummy_project',
+    'local_reload',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

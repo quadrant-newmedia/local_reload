@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Reload Tests</title>
+    {% include "local_reload/local_reload_support.html" %}
+</head>
+<body>
+    <h1>Local Reload Tests</h1>
+    <h2>Timestamp: {{timestamp}}</h2>
+    <p>Activate the links/buttons, and follow the instructions. Each time you return to this page, ensure that the timestamp updates.</p>
+    <ol>
+        <li><a href="/form_post_and_go_back/">Form post, go back</a></li>
+        <li><a href="/manual_invalidate_and_go_back/">Manual invalidate, go back</a></li>
+        <li><button onclick="window.open('/form_post_and_close/', '', 'width=200,height=200');">Form post, close window</button></li>
+        <li><button onclick="window.open('/form_post_and_close/');">Form post, close tab</button></li>
+    </ol>
+</body>
+</html>

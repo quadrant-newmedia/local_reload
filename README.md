@@ -1,27 +1,34 @@
-# APP_NAME
+# local_reload
 
-This is a "seed" project for creating a reusable django app.
-It aids with packaging the project for pypi, pushing to GitHub, and automating tests using tox.
+Provides a means of identifying and automatically reloading "stale" pages. 
 
-For a more advanced setup, see https://www.b-list.org/weblog/2018/apr/02/testing-django/
+Keeps a "last update time" in localStorage, and updates it whenever the user "updates data". Any time the user "returns" to a page (via browser history, or switches tabs/windows), that page will automatically reload if it is stale (if it was rendered before the last update time).
 
-For the python documentation on packagin, see https://packaging.python.org/tutorials/packaging-projects/
+Intended for use on CRUD heavy sites, especially when you use history.back() or use multiple tabs/windows as part of the normal workflow.
 
-## How To Use:
-- clone this repo, then delete the origin remote
-- do a search and replace on this project, replacing APP_NAME with the actual name of your app
-- rename the APP_NAME directory
-- create venv
-- run: pip install -r requirements.txt
-- run: tox (verify that the tests are working)
-- verify setup.py
+## Limitations
 
-When you are ready to build and push to pypi/remote repo (after running tests):
-- update version number
-- update RELEASE_NOTES.md
-- commit everything to git
-- run build_and_push
+### Update Time is Per-Browser
 
-## About django/dummy_project
+If data is updated in one browser, it will not reload pages in another browser. This is designed for a single user updating and viewing data in a single browser. We use `window.localStorage` to store the update time, so our scope is the same as that of localStorage (hence the name "local_reload").
 
-This project contains a simple dummy django project, with complete settings. These files are not packed with distribution. They enable you run django's dev server, if needed, while developing.
+### Update Time is Site-Wide
+
+A single, site-wide "update time" is maintained. A change in one piece of data will invalidate all previously rendered pages, even if they do not display that data.
+
+### Update Detection
+
+We automatically reset the update time when any form is POSTed. To be more precise - we reset the update time on every form submit event, as long as the form's method is not GET.
+
+This works well if you use actual form submissions (even if handled via javascript) as the event which triggers data updates. If you update data without the user submitting a form, then you must manually call `window.local_reload_invalidate()`.
+
+### No Background Reload
+
+Pages will not be reloaded in background tabs/windows. They will only be reloaded when the user returns focus to them. This is actually by design. Previous attempts to reload background windows/tabs resulted in undesirable behaviour in many situations.
+
+## Installation
+- `pip install local_reload`
+- add 'local_reload' to `INSTALLED_APPS`
+- `{% include "local_reload/local_reload_support.html" %}` in the `head`<sup>\*</sup> of any page that displays or updates data
+
+<sup>\*</sup> This should be added near the top of your `head`, so it can run as early as possible, so that the contents of the page will not be hidden if stale.

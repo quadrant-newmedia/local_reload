@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="APP_NAME",
+    name="local_reload",
     version="0.0.0",
     author="Alex Fischer",
     author_email="alex@quadrant.net",
@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     # url="TODO - github repo",
-    packages=['APP_NAME', 'APP_NAME.tests'],
+    packages=['local_reload'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -20,4 +20,5 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=["Django>=2.2,<3.1"],
+    include_package_data=True,
 )
