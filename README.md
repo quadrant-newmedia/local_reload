@@ -31,4 +31,4 @@ Pages will not be reloaded in background tabs/windows. They will only be reloade
 - add 'local_reload' to `INSTALLED_APPS`
 - `{% include "local_reload/local_reload_support.html" %}` in the `head`<sup>\*</sup> of any page that displays or updates data
 
-<sup>\*</sup> This should be added near the top of your `head`, so it can run as early as possible, so that the contents of the page will not be hidden if stale.
+<sup>\*</sup> This should be added near the top of your `head`, so it can run as early as possible.
