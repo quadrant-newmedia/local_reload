@@ -27,8 +27,13 @@ This works well if you use actual form submissions (even if handled via javascri
 Pages will not be reloaded in background tabs/windows. They will only be reloaded when the user returns focus to them. This is actually by design. Previous attempts to reload background windows/tabs resulted in undesirable behaviour in many situations.
 
 ## Installation
+
 - `pip install local_reload`
 - add 'local_reload' to `INSTALLED_APPS`
 - `{% include "local_reload/local_reload_support.html" %}` in the `head`<sup>\*</sup> of any page that displays or updates data
 
 <sup>\*</sup> This should be added near the top of your `head`, so it can run as early as possible.
+
+## NavTricks
+
+We include a copy of NavTricks.js in our static files. This script pairs perfectly with local_reload. 

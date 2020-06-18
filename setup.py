@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open('VERSION', 'r') as fh:
+    version = fh.read()
+
 setuptools.setup(
     name="local_reload",
-    version="1.0.0",
+    version=version,
     author="Alex Fischer",
     author_email="alex@quadrant.net",
     description="Django app for automatically identifying and reloading stale web pages",

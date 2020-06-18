@@ -1,0 +1,3 @@
+[submodule "src/local_reload/static/local_reload/vendor/NavTricks"]
+	path = src/local_reload/static/local_reload/vendor/NavTricks
+	url = git@github.com:quadrant-newmedia/NavTricks.git
