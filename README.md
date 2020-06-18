@@ -34,6 +34,10 @@ Pages will not be reloaded in background tabs/windows. They will only be reloade
 
 <sup>\*</sup> This should be added near the top of your `head`, so it can run as early as possible.
 
+## `window.disable_local_reload`
+
+Set this to true if you want to temporarily/conditionally disable local reload on the given window.
+
 ## NavTricks
 
 We include a copy of NavTricks.js in our static files. This script pairs perfectly with local_reload. 

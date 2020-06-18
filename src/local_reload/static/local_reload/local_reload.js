@@ -4,6 +4,8 @@
     window.local_reload_invalidate = function() {
         localStorage.local_reload_update_time = Date.now();
     }
+    // Users can set this true to temporarily disable local_reload
+    window.disable_local_reload = false;
 
     // Call whenever user submits a non-GET form
     addEventListener('submit', function(e) {
@@ -11,6 +13,8 @@
     });
 
     function reload_if_necessary(erasing_document) {
+        if (window.disable_local_reload) return
+
         var last_update = localStorage.local_reload_update_time;
         if (!last_update) return
 
