@@ -1,3 +1,7 @@
+# 1.2.1
+
+Updated NavTricks (bug fix)
+
 # 1.2.0
 
 Added `window.disable_local_reload` flag
