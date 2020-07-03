@@ -1,3 +1,6 @@
+# 1.2.2
+Updated NavTricks (dropped `NavTricks.replaceCurrentPage()`)
+
 # 1.2.1
 
 Updated NavTricks (bug fix)
