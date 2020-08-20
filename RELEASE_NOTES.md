@@ -1,3 +1,6 @@
+# 1.2.3
+Updated NavTricks (fixed bug in `withParentPage`)
+
 # 1.2.2
 Updated NavTricks (dropped `NavTricks.replaceCurrentPage()`)
 
